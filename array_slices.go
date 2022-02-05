@@ -3,7 +3,6 @@ package main
 import "fmt"
 
 func main() {
-
 	// Create an empty string array with 2 elements
 	var a [2]string
 	a[0] = "Hello"
