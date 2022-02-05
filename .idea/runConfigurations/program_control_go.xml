@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="program_control.go" type="GoApplicationRunConfiguration" factoryName="Go Application">
+    <module name="Learning-Go-Backend-Dev" />
+    <working_directory value="$PROJECT_DIR$" />
+    <kind value="FILE" />
+    <package value="Learning-Go-Backend-Dev" />
+    <directory value="$PROJECT_DIR$" />
+    <filePath value="$PROJECT_DIR$/program_control.go" />
+    <method v="2" />
+  </configuration>
+</component>
