@@ -1,11 +1,11 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="array_slices.go" type="GoApplicationRunConfiguration" factoryName="Go Application">
+  <configuration default="false" name="methods.go" type="GoApplicationRunConfiguration" factoryName="Go Application">
     <module name="Learning-Go-Backend-Dev" />
     <working_directory value="$PROJECT_DIR$" />
     <kind value="FILE" />
     <package value="Learning-Go-Backend-Dev" />
     <directory value="$PROJECT_DIR$" />
-    <filePath value="$PROJECT_DIR$/array_slices.go" />
+    <filePath value="$PROJECT_DIR$/introduction/methods.go" />
     <method v="2" />
   </configuration>
 </component>

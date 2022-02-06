@@ -5,7 +5,7 @@
     <kind value="FILE" />
     <package value="Learning-Go-Backend-Dev" />
     <directory value="$PROJECT_DIR$" />
-    <filePath value="$PROJECT_DIR$/fundamentals.go" />
+    <filePath value="$PROJECT_DIR$/introduction/fundamentals.go" />
     <method v="2" />
   </configuration>
 </component>
