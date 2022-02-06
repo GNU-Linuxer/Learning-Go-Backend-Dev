@@ -1,6 +1,8 @@
 package main
 
 import (
+	"encoding/json"
+	"fmt"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
@@ -8,15 +10,20 @@ import (
 )
 
 func main() {
-	r := chi.NewRouter()
-	r.Use(middleware.Logger)
-	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Starting Server...")
+	router := chi.NewRouter()
+	router.Use(middleware.Logger)
+	router.Get("/", func(w http.ResponseWriter, r *http.Request) { // A handler always has a response writer and request
 		w.Header().Set("Content-Type", "txt")
 		w.Write([]byte("welcome"))
 	})
+	router.Get("/json", func(w http.ResponseWriter, r *http.Request) { // A handler always has a response writer and request
+		w.Header().Set("Content-Type", "json")
+		json.NewEncoder(w).Encode("JSON here!")
+	})
 
 	// RESTy routes for "articles" resource
-	r.Route("/articles", func(r chi.Router) {
+	router.Route("/articles", func(r chi.Router) {
 		// GET /articles
 		r.Get("/", func(w http.ResponseWriter, r *http.Request) {
 			w.Header().Set("Content-Type", "txt")
@@ -29,11 +36,11 @@ func main() {
 		})
 		// POST /articles
 		r.Post("/", func(w http.ResponseWriter, r *http.Request) {
-			received := r.Body
+			//received := r.Body
 
-			w.Write([]byte(received))
+			w.Write([]byte("Received post action on article"))
 		})
 	})
 
-	http.ListenAndServe(":9000", r)
+	http.ListenAndServe(":9000", router)
 }
