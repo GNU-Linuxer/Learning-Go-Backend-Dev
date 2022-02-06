@@ -155,6 +155,22 @@ func main() {
 
 	fmt.Println(compute(hypot))
 	fmt.Println(compute(math.Pow))
+
+	// Closure
+	pos, neg := adder(), adder()
+	for i := 4; i < 5; i++ {
+		fmt.Println(
+			pos(i),    // adder(i)
+			neg(-2*i), // adder(-2*i)
+		)
+	}
+}
+func adder() func(int) int {
+	sum := 0
+	return func(x int) int {
+		sum += x
+		return sum
+	}
 }
 
 // Go and JavaScript does not support function overloading (2 functions are considered different if they take different typed-parameters)
