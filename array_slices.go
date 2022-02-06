@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"strings"
 )
 
@@ -105,6 +106,55 @@ func main() {
 	// We can add more than one element at a time.
 	nums = append(nums, 2, 3, 4)
 	printSlice2(nums)
+
+	// For-each loop on a slice
+	var pow = []int{1, 2, 4, 8, 16, 32, 64, 128}
+	// for i := range pow (If you only want the index, you can omit the second variable.)
+	for index, value := range pow { // Can also be used to iterate over a Map
+		fmt.Printf("2**%d = %d\n", index, value)
+	}
+	// fmt.Println(index, value) // undefined
+
+	// Map (associative array), using map in Go is similar to using it in JavaScript or Python (BUT NOT Java)
+	var m map[string]Coord // Create an empty Map (key: string -> value: Coord)
+	m = make(map[string]Coord)
+	m["Bell Labs"] = Coord{40.68433, -74.39967}
+	fmt.Println(m["Bell Labs"])
+
+	// Create a Map using existing values
+	var m2 = map[string]Coord{
+		"Bell Labs": {40.68433, -74.39967},
+		"Google":    {37.42202, -122.08408},
+	}
+	fmt.Println(m2["Google"])
+
+	// Map operations
+	quiz := make(map[string]int)
+
+	quiz["Answer"] = 42 // Insert an element
+	fmt.Println("The value:", quiz["Answer"])
+
+	quiz["Answer"] = 48 // Update an element
+	fmt.Println("The value:", quiz["Answer"])
+
+	delete(quiz, "Answer") // Delete an element by Key
+	fmt.Println("The value:", quiz["Answer"])
+
+	// Test whether a key is in Map
+	// If key is in quiz, isInMap is true. If not, isInMap is false.
+	// If key is not in quiz, then elem is the zero value for the map's element/value type (in this case, int)
+	elem, isInMap := quiz["Answer"] // elem and isInMap are not yet declared, use shorthand notation := to declare it
+	fmt.Println("The value:", elem, "Present?", isInMap)
+
+	// Another way to declare a function (sine function is a value), similar to JavaScript's const hypot = function(x, y) {}
+	// Hence you can pass this (callback) function without invoking it
+	hypot := func(x, y float64) float64 {
+		return math.Sqrt(x*x + y*y)
+	}
+	fmt.Println(hypot(5, 12))
+
+	fmt.Println(compute(hypot))
+	fmt.Println(compute(math.Pow))
 }
 
 // Go and JavaScript does not support function overloading (2 functions are considered different if they take different typed-parameters)
@@ -116,4 +166,12 @@ func printSlice2(s []int) {
 func printSlice(s string, x []int) {
 	fmt.Printf("%s len=%d cap=%d %v\n",
 		s, len(x), cap(x), x)
+}
+
+type Coord struct {
+	Lat, Long float64
+}
+
+func compute(fn func(float64, float64) float64) float64 {
+	return fn(3, 4)
 }
