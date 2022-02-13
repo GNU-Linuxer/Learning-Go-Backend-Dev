@@ -81,7 +81,7 @@ func sum(s []int, c chan int) {
 	c <- sum // send sum to c
 }
 
-// Sender can choose to close a channel, so sender can tell the receiver that there are no more values coming to thei channel
+// Sender can choose to close a channel, so sender can tell the receiver that there are no more values coming to this channel
 func fibonacci(n int, c chan int) {
 	x, y := 0, 1
 	for i := 0; i < n; i++ {
