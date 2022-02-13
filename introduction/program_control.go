@@ -11,11 +11,11 @@ import (
 func main() {
 	// For-loop
 	sum := 0
-	sum2 := 1
 	for i := 0; i < 10; i++ {
 		sum += i
 	}
 
+	sum2 := 1
 	// The init and post statements are optional (equivalent to while loop)
 	for sum2 < 1000 {
 		sum2 += sum2
@@ -41,7 +41,7 @@ func main() {
 	fmt.Print("Go runs on ")
 	// switch within a block-scoped variable declaration
 	switch os := runtime.GOOS; os { // ; implies end of this statement, useful for writing multiple statement at a single line
-	case "darwin":
+	case "darwin": // os == "darwin"
 		fmt.Println("OS X.")
 	case "linux":
 		fmt.Println("Linux.")

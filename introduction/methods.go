@@ -64,7 +64,7 @@ func (v Vertex2) Abs() float64 {
 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
 
-// This is same as:
+// This is a more typical way to write the above Abs() function:
 func _Abs(v Vertex2) float64 {
 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }

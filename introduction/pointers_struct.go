@@ -11,8 +11,8 @@ func main() {
 	*p = 21         // Set i's value
 	fmt.Println(i)
 
-	p = &j // p now stores the memory address of variable j
-	*p = *p / 37
+	p = &j       // p now stores the memory address of variable j
+	*p = *p / 37 // Go does not have pointer arithmetic
 	fmt.Println(j)
 
 	fmt.Println(Vertex{1, 2})
@@ -20,7 +20,7 @@ func main() {
 	myPoint := Vertex{1, 2}
 	myPoint.X = 4
 	myPointPtr := &myPoint
-	myPointPtr.Y = 1e9 // implicit de-referencing myPointPtr
+	myPointPtr.Y = 1e9 // implicit de-referencing myPointPtr, similar to myPointPtr->Y in C/C++
 	fmt.Println(myPoint.X, myPointPtr.Y)
 
 	myPointPtr = &Vertex{10, 20} // A pointer points to an instance of Vertex struct, with its X=10 and Y=20

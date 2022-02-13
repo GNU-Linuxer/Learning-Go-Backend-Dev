@@ -72,5 +72,6 @@ func swap(x, y string) (string, string) { // implies (x string, y string)
 func split(sum int) (x, y int) { // similar to other language's: type result = ****; do something; return result;
 	x = sum * 4 / 9
 	y = sum - x
-	return // A return statement without arguments returns the named return values. This is known as a "naked" return.
+	// A return statement without arguments returns the named return values. This is known as a "naked" return.
+	return // Equivalent to: return x, y
 }
